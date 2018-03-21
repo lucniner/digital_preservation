@@ -61,7 +61,7 @@ public class ChicagoMapReducer {
 
     File file = new File("chicago_minimized.csv");
     FileWriter fileWriter = new FileWriter(file);
-    fileWriter.write("YEAR;SUM_OF_CRIMES");
+    fileWriter.write("YEAR;SUM_OF_CRIMES\n");
     for (Map.Entry<Integer, Long> entry : crimesPerYearChicago.entrySet()) {
       fileWriter.write(entry.getKey() + ";" + entry.getValue() + "\n");
     }
