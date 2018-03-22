@@ -233,7 +233,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src/main/resources/Crimes_-_2001_to_present\.csv
-
-src/main/resources/Crimes_-_1976_to_2016\.csv
-*.csv
+.*csv
+.*png
