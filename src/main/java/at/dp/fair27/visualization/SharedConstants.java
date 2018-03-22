@@ -3,6 +3,9 @@ package at.dp.fair27.visualization;
 public class SharedConstants {
 
 
+  private SharedConstants() {
+  }
+
   static String[] CHICAGO_CRIME_HEADERS = {"YEAR", "SUM_OF_CRIMES"};
 
 
