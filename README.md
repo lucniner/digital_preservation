@@ -2,15 +2,15 @@
 
 This repository is here for the first part of the first assignment of the practical assignment of the course digital preservation from the technical university in vienna.
 
-#EXPERIMENT
+# EXPERIMENT
 The experiment used here is pretty simple. Two different open data repositories have been chosen, namely the statistical federal office of germany and the open data repository of the United States of America. From each repository a dataset was chosen and the data got preprocessed to then get visualized in a JAVA application. 
 
 
-#DATA
+# DATA
 In the data folder are three files. Two raw input files, namely [crimes_in_chicago_2001_to_2018](https://doi.org/10.5281/zenodo.1205219) and   [crimes_in_germany_1976_to_2016.csv](https://zenodo.org/record/1205342). The third file can be produced by executing the mapreducer [crimes_in_chicago_summized_per_year.csv](https://zenodo.org/record/1205333). The map reducer makes the sum of all crimes per year in chicago. This was mainly done because of performance reasons, otherwise the complete map reduce job would need to run every time the visualization is made.
 
 
-#LICENCE - MIT
+# LICENCE - MIT
 
 Copyright 2018 Lukas Kathrein, Michael Sober
 
