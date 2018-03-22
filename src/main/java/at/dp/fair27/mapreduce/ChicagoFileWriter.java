@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ChicagoFileWriter {
 
-  private static String OUTPUT_FILE_NAME = "crimes_in_chicago_summized_per_year.csv";
+  private static String OUTPUT_FILE_NAME = "crimes_in_chicago_summarized_per_year.csv";
 
   private final Map<Integer, Long> crimesPerYearChicago;
   private final String outputPath;
