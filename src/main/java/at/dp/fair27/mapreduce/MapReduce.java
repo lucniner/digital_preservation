@@ -33,7 +33,7 @@ public class MapReduce {
 
   private Integer extractYearFromRecord(final CSVRecord record) {
     final String dateFormatted = record.get("Date");
-    final String year = dateFormatted.substring(dateFormatted.lastIndexOf("/") + 1, dateFormatted.lastIndexOf("/") + 5);
+    final String year = dateFormatted.substring(dateFormatted.lastIndexOf('/') + 1, dateFormatted.lastIndexOf('/') + 5);
     return Integer.valueOf(year);
   }
 

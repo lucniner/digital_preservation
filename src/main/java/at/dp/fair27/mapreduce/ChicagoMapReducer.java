@@ -16,20 +16,23 @@ import java.util.logging.Logger;
 public class ChicagoMapReducer {
 
   private static final Logger LOGGER = Logger.getLogger(ChicagoMapReducer.class.getSimpleName());
+  private static String chicagoCrimesInputFileLocation;
+  private static String chicagoCrimesMapedOutputFileLocation;
 
   public static void main(String[] args) {
-    if (args.length != 1) {
-      LOGGER.log(Level.SEVERE, "program argument mismatch - please start program with exactly the path to chicago crimes data set");
+    if (args.length != 2) {
+      LOGGER.log(Level.SEVERE, "program argument mismatch - please start program with the path to chicago crimes data set and an output path");
     } else {
       LOGGER.log(Level.INFO, "starting to process chicago crimes");
-      final String argument = args[0];
-      executeMapReduceJob(argument);
+      chicagoCrimesInputFileLocation = args[0];
+      chicagoCrimesMapedOutputFileLocation = args[1];
+      executeMapReduceJob();
     }
 
   }
 
-  private static void executeMapReduceJob(final String argument) {
-    final Optional<Iterable<CSVRecord>> optionalRecords = getRecords(argument);
+  private static void executeMapReduceJob() {
+    final Optional<Iterable<CSVRecord>> optionalRecords = getRecords(chicagoCrimesInputFileLocation);
     optionalRecords.ifPresent(ChicagoMapReducer::reduceRecords);
     LOGGER.log(Level.INFO, "map reduce job for chicago crimes data set finished");
   }
@@ -54,7 +57,7 @@ public class ChicagoMapReducer {
 
   private static void writeResults(final Map<Integer, Long> reducedCrimes) {
     LOGGER.log(Level.INFO, "writing map reduce results to file");
-    final ChicagoFileWriter writer = new ChicagoFileWriter(reducedCrimes);
+    final ChicagoFileWriter writer = new ChicagoFileWriter(reducedCrimes, chicagoCrimesMapedOutputFileLocation);
     try {
       writer.writeResult();
     } catch (IOException e) {

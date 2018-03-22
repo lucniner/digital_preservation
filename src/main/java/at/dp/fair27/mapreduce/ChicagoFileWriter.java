@@ -11,18 +11,19 @@ public class ChicagoFileWriter {
   private static String OUTPUT_FILE_NAME = "crimes_in_chicago_summized_per_year.csv";
 
   private final Map<Integer, Long> crimesPerYearChicago;
+  private final String outputPath;
 
-  ChicagoFileWriter(Map<Integer, Long> crimesPerYearChicago) {
+  ChicagoFileWriter(Map<Integer, Long> crimesPerYearChicago, String outputPath) {
     this.crimesPerYearChicago = crimesPerYearChicago;
+    this.outputPath = outputPath;
   }
 
 
   public void writeResult() throws IOException {
-    final File file = new File(OUTPUT_FILE_NAME);
+    final File file = new File(outputPath.concat(OUTPUT_FILE_NAME));
     try (final FileWriter fileWriter = new FileWriter(file)) {
       writeHeader(fileWriter);
       writeBody(fileWriter);
-      fileWriter.close();
     }
   }
 
