@@ -1,12 +1,11 @@
 package at.dp.fair27.mapreduce;
 
-import org.apache.commons.csv.CSVRecord;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.csv.CSVRecord;
 
 /**
  * @author Lukas Kathrein
@@ -21,7 +20,8 @@ public class ChicagoMapReducer {
 
   public static void main(String[] args) {
     if (args.length != 2) {
-      LOGGER.log(Level.SEVERE, "program argument mismatch - please start program with the path to chicago crimes data set and an output path");
+      LOGGER.log(Level.SEVERE,
+          "program argument mismatch - please start program with the 1) path to chicago crimes data set and 2) an output path");
     } else {
       LOGGER.log(Level.INFO, "starting to process chicago crimes");
       chicagoCrimesInputFileLocation = args[0];

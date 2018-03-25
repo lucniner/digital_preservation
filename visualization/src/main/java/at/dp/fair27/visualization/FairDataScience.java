@@ -3,17 +3,16 @@ package at.dp.fair27.visualization;
 import at.dp.fair27.visualization.parser.ChicagoCrimesParser;
 import at.dp.fair27.visualization.parser.GermanyCrimesParser;
 import at.dp.fair27.visualization.parser.ICrimesParser;
+import java.io.IOException;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.stage.Stage;
 import org.apache.commons.csv.CSVRecord;
-
-import java.io.IOException;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class FairDataScience extends Application {
 
@@ -44,25 +43,27 @@ public class FairDataScience extends Application {
     return new DiagramLabeling(title, xLabel, yLabel, chicagoSeriesLabel, germanSeriesLabel);
   }
 
-  private static Map<Integer, Long> getCrimesForChicago() throws IOException {
+  private static Map<Integer, Long> getCrimesForChicago() throws IOException, ParserException {
     final Iterable<CSVRecord> chicagoCrimesRecords = crimesReader.getCrimesRecords(chicagoCrimesFileLocation, SharedConstants.CHICAGO_CRIME_HEADERS);
     final ICrimesParser chicagoCrimesParser = new ChicagoCrimesParser(chicagoCrimesRecords);
     return getCrimes(chicagoCrimesParser);
   }
 
-  private static Map<Integer, Long> getCrimesForGermany() throws IOException {
+  private static Map<Integer, Long> getCrimesForGermany() throws IOException, ParserException {
     final Iterable<CSVRecord> germanCrimesRecords = crimesReader.getCrimesRecords(germanyCrimesFileLocation, SharedConstants.GERMANY_CRIME_HEADERS);
     final ICrimesParser germanyCrimesParser = new GermanyCrimesParser(germanCrimesRecords, SharedConstants.GERMANY_CRIME_HEADERS);
     return getCrimes(germanyCrimesParser);
   }
 
-  private static Map<Integer, Long> getCrimes(final ICrimesParser parser) {
+  private static Map<Integer, Long> getCrimes(final ICrimesParser parser) throws ParserException {
     return parser.getParsedCrimesRecords();
   }
 
   @Override
-  public void start(Stage primaryStage) throws Exception {
-    FXMLLoader.load(getClass().getClassLoader().getResource("sample.fxml"));
+  public void start(Stage primaryStage) {
+    try {
+      FXMLLoader.load(getClass().getClassLoader().getResource("sample.fxml"));
+
     primaryStage.setTitle("FAIR DATA SCIENCE - Crimes in Chicago vs Germany 2001 - 2016");
 
     final DiagramLabeling labeling = getLabeling();
@@ -75,6 +76,13 @@ public class FairDataScience extends Application {
 
     primaryStage.setScene(scene);
     primaryStage.show();
-
+    } catch (IOException e) {
+      LOGGER.log(Level.SEVERE, "exception loading fxml file for visualization", e);
+      System.exit(1);
+    } catch (ParserException e) {
+      LOGGER.log(Level.SEVERE,
+          "parser exception - please make sure that you have the right order of the files for parsing 1) chicago 2) germany");
+      System.exit(1);
+    }
   }
 }

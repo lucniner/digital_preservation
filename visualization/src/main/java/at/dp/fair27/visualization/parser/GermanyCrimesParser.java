@@ -1,12 +1,11 @@
 package at.dp.fair27.visualization.parser;
 
 import com.google.common.collect.Lists;
-import org.apache.commons.csv.CSVRecord;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import org.apache.commons.csv.CSVRecord;
 
 public class GermanyCrimesParser implements ICrimesParser {
   private final Map<Integer, Long> crimesPerYearGermany = new TreeMap<>();

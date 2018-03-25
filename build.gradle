@@ -1,29 +1,16 @@
-apply plugin: "java"
-apply plugin: "application"
-
-mainClassName = "at.dp.fair27.visualization.FairDataScience"
-
-repositories {
-    mavenCentral()
-}
-
-jar {
-    baseName = "digital_preservation_ex_1"
-
-    manifest {
-        attributes "Main-Class": "$mainClassName"
-    }
-
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
     }
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
-dependencies {
-    compile "com.google.guava:guava:23.0"
-    compile group: "org.apache.commons", name: "commons-csv", version: "1.1"
-    testCompile "junit:junit:4.12"
+
+allprojects {
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }
-

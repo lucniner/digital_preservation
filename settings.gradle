@@ -8,3 +8,5 @@
  */
 
 rootProject.name = 'digital_preservation_ex_1'
+include 'mapreduce'
+include 'visualization'

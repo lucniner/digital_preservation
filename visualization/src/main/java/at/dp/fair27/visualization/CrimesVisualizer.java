@@ -1,11 +1,10 @@
 package at.dp.fair27.visualization;
 
+import java.util.Map;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-
-import java.util.Map;
 
 public class CrimesVisualizer {
 

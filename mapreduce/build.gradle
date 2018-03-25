@@ -1,0 +1,29 @@
+apply plugin: "java"
+apply plugin: "application"
+
+mainClassName = "at.dp.fair27.mapreduce.ChicagoMapReducer"
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = "chicago_map_reducer"
+
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "com.google.guava:guava:23.0"
+    compile group: "org.apache.commons", name: "commons-csv", version: "1.1"
+    testCompile "junit:junit:4.12"
+}
+
