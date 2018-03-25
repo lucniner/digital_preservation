@@ -7,7 +7,7 @@ The experiment used here is pretty simple. Two different open data repositories 
 
 
 # DATA
-For this experiment we used crimes data sets from chicago and germany. The raw input files, are  [crimes_in_chicago_2001_to_2018](https://doi.org/10.5281/zenodo.1205219) and   [crimes_in_germany_1976_to_2016.csv](https://zenodo.org/record/1205342). The third file we use can be produced by executing the mapreducer [crimes_in_chicago_summized_per_year.csv](https://zenodo.org/record/1205333). The map reducer makes the sum of all crimes per year in chicago. This was mainly done because of performance reasons, otherwise the complete map reduce job would need to run every time the visualization is made. Under the data folder there are the german as well as the minimized chicago data set. The raw input of the chicago data set exceeds the permitted file size, so please refer to the provided DOI link for download options
+For this experiment we used crimes data sets from chicago and germany. The raw input files, are  [crimes_in_chicago_2001_to_2018](https://doi.org/10.5281/zenodo.1205219) and   [crimes_in_germany_1976_to_2016.csv](https://zenodo.org/record/1205342). The third file we use can be produced by executing the mapreducer [crimes_in_chicago_summized_per_year.csv](https://zenodo.org/record/1205333). The map reducer makes the sum of all crimes per year in chicago. This was mainly done because of performance reasons, otherwise the complete map reduce job would need to run every time the visualization is made. Under the data folder there are the german as well as the minimized chicago data set. The raw input of the chicago data set exceeds the permitted file size, so please refer to the provided DOI link for download options.
 
 # Reproducability
 To reproduce our experiment, please use the files linked under the data section or download them from their original sources (Please keep in mind that the german file is without header + footer). Further build the two separate jar files for the mapreduce module and visualization module with gradle (gradle wrapper can also be used).
@@ -15,9 +15,16 @@ To reproduce our experiment, please use the files linked under the data section 
 ## Mapreduce
 The map reduce job needs as first argument the path to the original 1,43 GB data set and as second argument a path where you would like the minimized version to be stored.
 
+  ```shell
+  java -jar chicago_map_reducer.jar /path/to/crimes_in_chicago_2001_to_2018.csv /path/to/output/
+  ```
+
 ## Visualization
 The visualizer needs as first argument the minimized chicago data set and as second argument the german data set (without header and footer). It is possible to use the provided .csv files under the data folder in this repository.
 
+  ```shell
+java -jar visualizer.jar /path/to/crimes_in_chicago_summarized_per_year.csv /path/to/crimes_in_germany_1976_to_2016.csv
+  ```
 
 # Requirements
 * Please make sure that you have java installed and are able to run JavaFX programs.
