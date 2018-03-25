@@ -32,6 +32,10 @@ java -jar visualizer.jar /path/to/crimes_in_chicago_summarized_per_year.csv /pat
 * Please make sure that you have java installed and are able to run JavaFX programs.
 * Make sure that you give the right order of arguments to the program and see the error output we provide on the console.  
 
+# Contributers
+* [Michael Sober](https://orcid.org/0000-0002-9612-9022) <a href="https://orcid.org/0000-0002-9612-9022" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0002-9612-9022</a>
+* [Lukas Kathrein](https://orcid.org/0000-0001-5523-9383) <a href="https://orcid.org/0000-0001-5523-9383" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0001-5523-9383</a>
+
 # LICENCE - MIT
 
 Copyright 2018 Lukas Kathrein, Michael Sober
