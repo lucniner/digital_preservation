@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<metadata
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dc:title>Crimes in Chicago per Year from 2001 to 2018</dc:title>
+<dc:subject>Crimes, Chicago</dc:subject>
+<dc:description>Summazired reported incidents of crime that occurred in the City of Chicago from 2001 to 2018 per year.</dc:description>
+<dc:publisher>Sober Michael, Kathrein Lukas</dc:publisher>
+<dc:contributor>Sober Michael, Kathrein Lukas</dc:contributor>
+<dc:date>26.03.2018</dc:date>
+<dc:type>text</dc:type>
+<dc:format>text/csv</dc:format>
+<dc:identifier>https://doi.org/10.5281/zenodo.1205333</dc:identifier>
+<dc:source>https://doi.org/10.5281/zenodo.1205219</dc:source>
+<dc:language>en</dc:language>
+<dc:relation>Crimes - 2001 to present </dc:relation>
+<dc:coverage>2001-2018</dc:coverage>
+<dc:coverage>Chicago</dc:coverage>
+<dc:rights>Creative Commons Attribution 4.0</dc:rights>
+</metadata>
